@@ -12,19 +12,6 @@ import (
 func setupGin(db *mongo.Database) *gin.Engine {
 	// Set up Gin
 	r := gin.Default()
-
-	// Existing route
-	//r.GET("/ping", func(c *gin.Context) {
-	//	c.JSON(200, gin.H{
-	//		"message": "pong",
-	//	})
-	//})
-
-	// New route for fetching all characters
-	//r.GET("/characters", func(c *gin.Context) {
-	//	endpoints.GetAllCharacters(c, db)
-	//})
-
 	endpoints.RegisterCharacterRoutes(r, db)
 
 	return r
